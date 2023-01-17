@@ -1,0 +1,49 @@
+<div class="d-flex justify-content-center align-items-center bg-primary flex-column">
+  <div class="container d-flex justify-content-center align-items-center flex-column">
+    <div class="my-4">Adam Asmaca</div>
+    <div class="d-flex ms-auto justify-content-center align-items-center bg-warning p-4">
+      <div>Puanınız:</div>
+      {{puan}}
+    </div>
+    <div class="my-4">Gizli Kelimeyi Bulun</div>
+    <div class="bg-warning">
+      <div ><svg width="500" height="500">
+        <line x1="50" y1="100" x2="150" y2="0" style="stroke:rgb(255,0,0);stroke-width:5"></line>
+        <line x1="50" y1="0" x2="200" y2="0" style="stroke:rgb(255,0,0);stroke-width:5"></line>
+        <line x1="50" y1="0" x2="50" y2="480" style="stroke:rgb(255,0,0);stroke-width:5"></line>
+        <line x1="0" y1="480" x2="50" y2="480" style="stroke:rgb(255,0,0);stroke-width:5"></line>
+        <line x1="50" y1="480" x2="100" y2="480" style="stroke:rgb(255,0,0);stroke-width:5"></line>
+        <line x1="200" y1="0" x2="200" y2="50" style="stroke:rgb(255,0,0);stroke-width:5"></line>
+        <!--        vucut-->
+        <circle *ngIf="hataSayisi>=1" cx="200" cy="100" r="50" style="fill: red"></circle>
+        <line *ngIf="hataSayisi>=3" x1="200" y1="150" x2="100" y2="250" style="stroke:rgb(255,0,0);stroke-width:2"></line>
+        <line *ngIf="hataSayisi>=4" x1="200" y1="150" x2="300" y2="250" style="stroke:rgb(255,0,0);stroke-width:2"></line>
+        <line *ngIf="hataSayisi>=2" x1="200" y1="150" x2="200" y2="300" style="stroke:rgb(255,0,0);stroke-width:2"></line>
+        <line *ngIf="hataSayisi>=5" x1="200" y1="300" x2="100" y2="400" style="stroke:rgb(255,0,0);stroke-width:2"></line>
+        <line *ngIf="hataSayisi==6" x1="200" y1="300" x2="300" y2="400" style="stroke:rgb(255,0,0);stroke-width:2"></line>
+        <!--        vucut-->
+      </svg></div>
+    </div>
+  </div>
+  <div *ngIf="!oyunBitti" class="cevapalani">
+    <div *ngFor="let harf of soru;let i = index" class="cevapparcasi">
+      <div style="display: none" [id]="'harf'+i">
+      {{harf}}
+    </div>
+    </div>
+  </div>
+
+  <div *ngIf="!oyunBitti" class="row bg-danger" style="width: 400px;height: 200px;">
+    <span class="col p-0 " *ngFor="let harf of harfler;let i = index">
+      <button  [id]="i" (click)="klavyeTiki(harf,i)" class="kutu" >
+        <span >{{harf}}</span>
+      </button>
+
+    </span>
+
+  </div>
+  <button (click)="soruYazdir()" class="btn btn-danger">soru yazdır</button>
+  <button (click)="yeniBolum()" class="btn btn-danger">yeni bölüme geç</button>
+  <button *ngIf="oyunBitti" (click)="yenidenBaslat()" class="btn btn-danger">oyunu yenile</button>
+  <h1 *ngIf="oyunBitti">oyun bitti</h1>
+</div>
