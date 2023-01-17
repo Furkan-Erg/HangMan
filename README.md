@@ -1,4 +1,4 @@
-# [Youtube Videoları Oynatma Listesi] (https://www.youtube.com/playlist?list=PLQ2Q2wTOlWZn0mZReg0Jcey0JEikmIGYx)
+[Youtube Videoları Oynatma Listesi] (https://www.youtube.com/playlist?list=PLQ2Q2wTOlWZn0mZReg0Jcey0JEikmIGYx)
 
 
 # HangMan
